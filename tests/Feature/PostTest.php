@@ -25,4 +25,15 @@ class PostTest extends TestCase
             ->assertSuccessful();
         $this->assertDatabaseHas('posts', $testdata);
     }
+
+    /**
+     * Post Test index.
+     *
+     * @return void
+     */
+    public function testPostIndex()
+    {
+        $this->get('/api/posts')
+            ->assertSuccessful();
+    }
 }
