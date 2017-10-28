@@ -14,15 +14,14 @@ class PostTest extends TestCase
      */
     public function testPostCreate()
     {
-        $post = factory(\App\Post::class)->create();
+        $post = new \App\Post;
         $testdata = [
             'title' => 'test title',
             'author' => 'fake author',
             'content' => 'test content'
         ];
-        $this->actingAs($post)
-            ->post('posts', $testdata)
-            ->assertResponseOk()
-            ->seeInDatabase('posts', $testdata);
+        $this->post('/posts', $testdata)
+            ->assertSuccessful();
+        $this->assertDatabaseHas('posts', $testdata);
     }
 }
