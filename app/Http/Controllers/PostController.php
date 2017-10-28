@@ -13,7 +13,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = \App\Post::all();
+        return json_encode($posts);
     }
 
     /**
