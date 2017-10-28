@@ -21,7 +21,7 @@ class PostTest extends TestCase
             'author' => 'fake author',
             'content' => 'test content'
         ];
-        $this->post('/posts', $testdata)
+        $this->post('/api/posts', $testdata)
             ->assertSuccessful();
         $this->assertDatabaseHas('posts', $testdata);
     }
