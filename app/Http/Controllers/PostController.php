@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // 
     }
 
     /**
@@ -34,7 +34,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new \App\Post;
+        $post->title = $request->title;
+        $post->author = $request->author;
+        $post->content = $request->content;
+        $post->save();
     }
 
     /**
