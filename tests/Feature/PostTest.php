@@ -14,7 +14,7 @@ class PostTest extends TestCase
      */
     public function testPostCreate()
     {
-        $post = factory(App\Post::class)->create();
+        $post = factory(\App\Post::class)->create();
         $testdata = [
             'title' => 'test title',
             'author' => 'fake author',
