@@ -50,7 +50,8 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $post = \App\Post::find($id);
+        return json_encode($post);
     }
 
     /**
@@ -73,7 +74,12 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = \App\Post::find($id);
+        $post->title = $request->title;
+        $post->author = $request->author;
+        $post->content = $request->content;
+        $post->save();
+        return json_encode($post);
     }
 
     /**
@@ -84,6 +90,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = \App\Post::find($id);
+        $post->delete();
     }
 }
